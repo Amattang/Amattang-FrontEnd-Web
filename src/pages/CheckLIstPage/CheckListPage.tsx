@@ -49,7 +49,7 @@ function CheckListPage() {
     if (mainCategory === "기본정보" || mainCategory === "외부시설") {
       axios
         .get(
-          `${process.env.REACT_APP_BASEURL}api/check-list/${id}/common?mainCategory=${mainCategory}`
+          `http://3.38.93.184:8080/api/check-list/${id}/common?mainCategory=${mainCategory}`
         )
         .then((response) => {
           setCheckLists(response.data.data.questionList);
@@ -59,7 +59,7 @@ function CheckListPage() {
     if (mainCategory === "내부시설" && subCategory === "") {
       axios
         .get(
-          `${process.env.REACT_APP_BASEURL}api/check-list/${id}/common?mainCategory=${mainCategory}&subCategory=창문`
+          `http://3.38.93.184:8080/api/check-list/${id}/common?mainCategory=${mainCategory}&subCategory=창문`
         )
         .then((response) => {
           setCheckLists(response.data.data.questionList);
@@ -67,7 +67,7 @@ function CheckListPage() {
     } else if (mainCategory === "내부시설" && subCategory) {
       axios
         .get(
-          `${process.env.REACT_APP_BASEURL}api/check-list/${id}/common?mainCategory=${mainCategory}&subCategory=${subCategory}`
+          `http://3.38.93.184:8080/api/check-list/${id}/common?mainCategory=${mainCategory}&subCategory=${subCategory}`
         )
         .then((response) => {
           setCheckLists(response.data.data.questionList);
