@@ -1,11 +1,13 @@
 import React from "react";
-import CheckList from "./CheckList";
+import Router from "./Router/Router";
+import { Reset } from "styled-reset";
 
 function App() {
   return (
-    <div className="App">
-      <CheckList />
-    </div>
+    <>
+      <Reset />
+      <Router />
+    </>
   );
 }
 
