@@ -11,7 +11,7 @@ function CheckList({ checkLists }: IProps) {
   // console.log(checkLists);
   return (
     <>
-      {checkLists.map((checkList, index) => (
+      {checkLists?.map((checkList, index) => (
         <div key={index}>
           <CL.Wrapper>
             <CL.Question>{checkList.question}</CL.Question>

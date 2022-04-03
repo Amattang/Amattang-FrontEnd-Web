@@ -1,9 +1,15 @@
 import React from "react";
+import { IMyItemProps } from "./myItem.types";
+import Element from "./Element";
 
-function MyItemOfCheckList() {
+function MyItemOfCheckList({ myItems }: IMyItemProps) {
   return (
     <>
-      <div>myiTem</div>
+      {myItems.map((myItem, index) => (
+        <div key={index}>
+          <Element myItem={myItem} />
+        </div>
+      ))}
     </>
   );
 }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 
@@ -18,7 +18,9 @@ import * as CheckListWrapper from "./checkListPage.style";
 
 function CheckListPage() {
   const { id } = useParams();
+
   const [checkLists, setCheckLists] = useState<checkListTypes[]>([]);
+  const [myItems, setMyItems] = useState([]);
   const [clickedCheckList, setClickedCheckList] =
     useState<mainCategoryType>("기본정보");
 
@@ -73,7 +75,14 @@ function CheckListPage() {
           setCheckLists(response.data.data.questionList);
         });
     }
-
+    if (mainCategory === "내 항목") {
+      axios
+        .get(`http://3.38.93.184:8080/api/check-list/${id}/custom`)
+        .then((response) => {
+          setMyItems(response.data.data);
+        })
+        .catch((e) => console.log(e));
+    }
     setClickedCheckList(mainCategory);
   };
   const onMainCheckListClickHandler = (
@@ -97,6 +106,13 @@ function CheckListPage() {
       )
     );
   };
+  useEffect(() => {
+    axios
+      .get(
+        `http://3.38.93.184:8080/api/check-list/${id}/common?mainCategory=기본정보`
+      )
+      .then((e) => setCheckLists(e.data.data.questionList));
+  }, []);
 
   return (
     <Common.Wrapper>
@@ -128,7 +144,7 @@ function CheckListPage() {
             ))}
         </CheckListWrapper.subCategoryWrapper>
         {clickedCheckList === "내 항목" ? (
-          <MyItemOfCheckList />
+          <MyItemOfCheckList myItems={myItems} />
         ) : (
           <CheckList checkLists={checkLists} />
         )}
