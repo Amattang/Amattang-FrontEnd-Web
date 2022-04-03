@@ -8,11 +8,11 @@ import TypeDButton from "../CheckListButton/TypeDButton";
 import TypeMButton from "../CheckListButton/TypeMButton";
 
 function CheckList({ checkLists }: IProps) {
-  console.log(checkLists);
+  // console.log(checkLists);
   return (
     <>
-      {checkLists.map((checkList) => (
-        <>
+      {checkLists.map((checkList, index) => (
+        <div key={index}>
           <CL.Wrapper>
             <CL.Question>{checkList.question}</CL.Question>
             {checkList.rule && (
@@ -44,7 +44,7 @@ function CheckList({ checkLists }: IProps) {
               <TypeMButton answer={checkList.answer} />
             )}
           </CL.Wrapper>
-        </>
+        </div>
       ))}
     </>
   );
