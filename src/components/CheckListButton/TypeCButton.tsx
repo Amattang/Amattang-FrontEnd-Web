@@ -4,17 +4,17 @@ import * as Button from "./Button.styles";
 import { ButtonsCWrapper } from "./Button.styles";
 
 function TypeCButton({ answer }: IProps) {
-  console.log(answer);
+  // console.log(answer);
   return (
     <>
       <Button.ButtonsCWrapper>
         {answer.some((answerItem) => answerItem) &&
-          answer.map((answerItem) => (
-            <>
+          answer.map((answerItem, index) => (
+            <div key={index}>
               <Button.TypeCButtonWrapper>
                 <Button.TypeCImage src={answerItem.url} />
               </Button.TypeCButtonWrapper>
-            </>
+            </div>
           ))}
       </Button.ButtonsCWrapper>
     </>

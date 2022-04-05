@@ -5,10 +5,11 @@ import { IProps } from "./Button.types";
 function TypeAButton({ answer }: IProps) {
   return (
     <Button.ButtonsWrapper>
-      {answer.map((answerItem) => (
+      {answer.map((answerItem, index) => (
         <Button.TypeAButtonWrapper
           color={answerItem.val ? "clicked" : "none"}
           title={answerItem.redType ? "red" : "blue"}
+          key={index}
         >
           {answerItem.type}
         </Button.TypeAButtonWrapper>

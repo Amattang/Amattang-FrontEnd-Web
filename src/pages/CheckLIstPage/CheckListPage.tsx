@@ -135,7 +135,6 @@ function CheckListPage() {
             subCategoryList.map((subCategory, index) => (
               <>
                 <SubCategory
-                  key={index}
                   index={index}
                   subCategory={subCategory}
                   onCheckListHandler={onCheckListHandler}

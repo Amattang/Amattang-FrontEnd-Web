@@ -6,12 +6,12 @@ function TypeMButton({ answer }: IProps) {
   return (
     <>
       <Button.ButtonsWrapper>
-        {answer.map((answerItem) => (
-          <>
+        {answer.map((answerItem, index) => (
+          <div key={index}>
             <Button.TypeBButtonWrapper>
               {answerItem.type}
             </Button.TypeBButtonWrapper>
-          </>
+          </div>
         ))}
       </Button.ButtonsWrapper>
     </>

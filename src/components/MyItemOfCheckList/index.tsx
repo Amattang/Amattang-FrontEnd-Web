@@ -5,10 +5,10 @@ import Element from "./Element";
 function MyItemOfCheckList({ myItems }: IMyItemProps) {
   return (
     <>
-      {myItems.map((myItem) => (
-        <>
+      {myItems.map((myItem, index) => (
+        <div key={index}>
           <Element myItem={myItem} />
-        </>
+        </div>
       ))}
     </>
   );
