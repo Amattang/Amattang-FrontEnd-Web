@@ -7,16 +7,18 @@ function TypeCButton({ answer }: IProps) {
   // console.log(answer);
   return (
     <>
-      <Button.ButtonsCWrapper>
-        {answer.some((answerItem) => answerItem) &&
-          answer.map((answerItem, index) => (
-            <div key={index}>
-              <Button.TypeCButtonWrapper>
-                <Button.TypeCImage src={answerItem.url} />
-              </Button.TypeCButtonWrapper>
-            </div>
-          ))}
-      </Button.ButtonsCWrapper>
+      {answer && (
+        <Button.ButtonsCWrapper>
+          {answer.some((answerItem) => answerItem) !== null &&
+            answer.map((answerItem, index) => (
+              <div key={index}>
+                <Button.TypeCButtonWrapper>
+                  <Button.TypeCImage src={answerItem.url} />
+                </Button.TypeCButtonWrapper>
+              </div>
+            ))}
+        </Button.ButtonsCWrapper>
+      )}
     </>
   );
 }
