@@ -51,7 +51,7 @@ function CheckListPage() {
     if (mainCategory === "기본정보" || mainCategory === "외부시설") {
       axios
         .get(
-          `https://www.amattang.shop/api/check-list/${id}/common?mainCategory=${mainCategory}`
+          `https://amattang.shop/api/check-list/${id}/common?mainCategory=${mainCategory}`
         )
         .then((response) => {
           setCheckLists(response.data.data.questionList);
@@ -61,7 +61,7 @@ function CheckListPage() {
     if (mainCategory === "내부시설" && subCategory === "") {
       axios
         .get(
-          `https://www.amattang.shop/api/check-list/${id}/common?mainCategory=${mainCategory}&subCategory=창문`
+          `https://amattang.shop/api/check-list/${id}/common?mainCategory=${mainCategory}&subCategory=창문`
         )
         .then((response) => {
           setCheckLists(response.data.data.questionList);
@@ -69,7 +69,7 @@ function CheckListPage() {
     } else if (mainCategory === "내부시설" && subCategory) {
       axios
         .get(
-          `https://www.amattang.shop/api/check-list/${id}/common?mainCategory=${mainCategory}&subCategory=${subCategory}`
+          `https://amattang.shop/api/check-list/${id}/common?mainCategory=${mainCategory}&subCategory=${subCategory}`
         )
         .then((response) => {
           setCheckLists(response.data.data.questionList);
@@ -77,7 +77,7 @@ function CheckListPage() {
     }
     if (mainCategory === "내 항목") {
       axios
-        .get(`https://www.amattang.shop/api/check-list/${id}/custom`)
+        .get(`https://amattang.shop/api/check-list/${id}/custom`)
         .then((response) => {
           setMyItems(response.data.data);
         })
@@ -109,7 +109,7 @@ function CheckListPage() {
   useEffect(() => {
     axios
       .get(
-        `https://www.amattang.shop/api/check-list/${id}/common?mainCategory=기본정보`
+        `https://amattang.shop/api/check-list/${id}/common?mainCategory=기본정보`
       )
       .then((e) => setCheckLists(e.data.data.questionList));
   }, []);
